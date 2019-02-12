@@ -1,0 +1,34 @@
+\section*{Project Proposal}
+
+\subsection{What...}
+Tell us what you are doing in this project\\
+In this project, I will be training a goal-oriented agent to operate a vehicle in the simulated environment of Grand Theft Auto.
+\subsection{Why...}
+Tell us why this project is important and is considered novel when compared to existing work\\
+Although purpose-built simulated environments such as Gazebo exist, the graphical fidelity of these environments are in stark contrast of real-life visuals. Any models trained in these environments will fail in the real world if they rely on RGB camera data. To my knowledge, there aren't any commercially available, high graphical-fidelity simulated environments available. I propose using the popular video game Grand Theft Auto as a proposed simulation environment. I theorize a model trained in the game Grand Theft Auto will demonstrate adequate performance when transferred to the real world.
+\subsection{How...}
+Tell us how you are planning to accomplish the project plan (give rough project outlines and milestones), also what are the expected outcomes\\
+I will start by building an API that can access rendered game frames as well as redirect controls from my agent into the game. Using a convolutional neural network, I will detect the presence of objects in the scene that are significant to operating a motor vehicle on the road. Using photogrammetry, I will calculate the distance of these objects relative to my agent. I will also use a Hough transform line detector for fast road lane detections.\\
+These features will be fed into my agent. I will also provide my agent with a map of the Grand Theft Auto roads, its current pose, as well as an arbitrary goal location. First, I will task my agent with calculating an optimal path from its current location to the goal location. Then I will task my agent with executing this path, by sending driving controls to the video game. Going further, I will utilize reinforcement learning to reward my agent with reaching the goal faster while penalizing it heavily for breaking common driving laws. 
+
+\fix{add a system diagram to illustrate your solution}
+
+\fix{add a table for project outline here}
+% An example of a floating table. Note that, for IEEE style tables, the 
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+\begin{table}[!t]
+\caption{Project Outline}
+\begin{tabular}{|l|l|l|}
+\hline
+Milestone 1 & Week 4  & \multicolumn{1}{p{5cm}|}{Establish input and output. Input: Create feature extraction algorithms to feed into the reinforcement learning neural network. Output: Create an API to control the video game character programmatically.} \\ \hline
+Milestone 2 & Week 8  & \multicolumn{1}{p{5cm}|}{Establish reinforcement learning pipeline. Display rudimentary capability of creating a path and following it without imposing driving laws.}\\ \hline
+Milestone 3 & Week 12 & \multicolumn{1}{p{5cm}|}{Optimize hyperparameters for learning routine. Display sophisticated capability with self-imposed driving laws.} \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Who cares...}
+Tell us how the project outcomes will create positive impacts on the research community or the society\\
+The presence of pedestrians, other cars, traffic lights, unmapped roadwork, and random weather conditions are what make Grand Theft Auto such a desirable simulation environment for self-driving cars. The high visual fidelity as compared to actual robotic simulation environments are an added bonus. Machine learning agents can be trained in this simulated environment faster than real time, making it both safer and more efficient when compared to training in the real world. And because Grand Theft Auto supports airborne and aquatic vehicles as well, each with their own unique, realistic physics, this simulation environment is not restricted to just land-based agents.
